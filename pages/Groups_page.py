@@ -22,16 +22,21 @@ class GroupsPage(BasePage):
         field = self.find_element(GroupsPageLocators.NAME_GROUP)
         return field
 
-    def fill_name_field(self):
+    def fill_name_field(self, name_group):
         field = self.find_name_field()
-        field.send_keys(username)
+        field.send_keys(name_group)
         return field
 
-    def find_username_fild(self):
-        field = self.find_element(UserPageLocators.USERNAME)
+    def find_save_group_field(self):
+        field = self.find_element(GroupsPageLocators.SAVE_GROUP)
         return field
 
-    def fill_username_field(self, username):
-        field = self.find_username_fild()
-        field.send_keys(username)
+    def click_save_field(self):
+        field = self.find_save_group_field()
+        field.click()
         return field
+
+    def group_creation(self, name_group):
+        self.click_add_group_field()
+        self.fill_name_field(name_group)
+        self.click_save_field()
