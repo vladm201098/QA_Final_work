@@ -30,27 +30,27 @@ class AddUserPage(BasePage):
         field = self.find_element(UserPageLocators.USERNAME)
         return field
 
-    def fill_username_field(self, username):
+    def fill_username_field(self, username_user):
         field = self.find_username_fild()
-        field.send_keys(username)
+        field.send_keys(username_user)
         return field
 
     def find_password_field(self):
         field = self.find_element(UserPageLocators.PASSWORD)
         return field
 
-    def fill_password_field(self,password):
+    def fill_password_field(self,password_user):
         field = self.find_password_field()
-        field.send_keys(password)
+        field.send_keys(password_user)
         return field
 
     def find_confirm_passwd_field(self):
         field = self.find_element(UserPageLocators.PASSWORD_CONFIRM)
         return field
 
-    def fill_confirm_passwd_field(self, password):
+    def fill_confirm_passwd_field(self, password_user):
         field = self.find_confirm_passwd_field()
-        field.send_keys(password)
+        field.send_keys(password_user)
         return field
 
     def find_save_field(self):
@@ -80,10 +80,10 @@ class AddUserPage(BasePage):
         field.click()
         return field
 
-    def user_creation(self, username, password, firstname, lastname, email):
-        self.fill_username_field(username)
-        self.fill_password_field(password)
-        self.fill_confirm_passwd_field(password)
+    def user_creation(self, username_user, password_user):
+        self.fill_username_field(username_user)
+        self.fill_password_field(password_user)
+        self.fill_confirm_passwd_field(password_user)
         self.click_save_field()
         self.click_staff_field()
         self.click_add_to_group_field()
