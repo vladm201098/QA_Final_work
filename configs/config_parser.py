@@ -17,4 +17,5 @@ logout_text = config.get('logout', 'logout_info')
 # welcome
 welcome_admin = config.get('welcome', 'welcome_admin')
 welcome_user = config.get('welcome', 'welcome_user')
-
+# date and time
+datetime = config.get('date_and_time', 'datetime_fisrt_post_img')
