@@ -18,6 +18,14 @@ class UserPage(BasePage):
         field.click()
         return field
 
+    def logout(self):
+        self.find_logout_field()
+        self.click_logout_field()
+
+    def find_logged_text(self):
+        text = self.find_element(UserPageLocators.LOGGED_OUT_TEXT)
+        return text
+
     def find_and_click_new_user(self):
         field = self.find_element(UserPageLocators.CHECK_NEW_USER)
         field.click()

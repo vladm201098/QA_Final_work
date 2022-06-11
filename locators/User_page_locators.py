@@ -25,3 +25,6 @@ class UserPageLocators:
     # Common
 
     LOG_OUT = (By.XPATH, '//*[@id="user-tools"]/a[3]')
+    LOG_OUT_CHECK_FIELD = (By.XPATH, '//*[@id="content"]/p[2]/a')
+    # Текст по наличию которого проверяем прошел ли разлогин
+    LOGGED_OUT_TEXT = (By.XPATH, '//*[@id="content"]/p[1]')

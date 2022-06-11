@@ -16,3 +16,9 @@ class AdminPage(BasePage):
     def get_welcome_name_text(self):
         name = self.find_welcome_name_field()
         return name.text
+
+    # Можно использовать как для админа так и для юзера
+    def check_admin_page(self):
+        self.open_main_page()
+        self.find_welcome_name_field()
+        self.get_welcome_name_text()
