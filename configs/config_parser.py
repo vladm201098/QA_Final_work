@@ -13,3 +13,4 @@ password_user = config.get("user_info", "password_user")
 #password_false_user = config.get("user_info", "password_false_user")
 
 
+name_group = config.get('group', "test_group")

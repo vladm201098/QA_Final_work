@@ -10,4 +10,5 @@ class GroupsPageLocators:
     SAVE_GROUP = (By.XPATH, '//*[@id="group_form"]/div/div/input[1]')
     # ВОЗМОЖНО НУЖНО ПОМЕНЯТЬ - УКАЗАН КОНКРЕТНЫЙ ПОЛЬЗОВАТЕЛЬ
     CHECK_NEW_GROUP = (By.XPATH, '//*[@id="result_list"]/tbody/tr/th/a')
+    FILLED_NAME_GROUP = (By.NAME, 'name')
 

@@ -13,14 +13,18 @@ from configs.config_parser import username_adm, password_adm, username_user, pas
 
 @pytest.fixture(scope= 'class')
 def browser():
-    driver = webdriver.Chrome()
+    chrome_options = webdriver.ChromeOptions()
+    chrome_options.add_argument('--no-sandbox')
+    chrome_options.add_argument('--headless')
+    chrome_options.add_argument('--disable-gpu')
+    driver = webdriver.Chrome(options=chrome_options)
     driver.maximize_window()
     driver.implicitly_wait(10)
     yield driver
     driver.quit()
 
 @pytest.fixture(scope= 'class')
-def login_page(browser)
+def login_page(browser):
     login_page = LoginPage(browser)
     login_page.open_login_page()
     yield login_page

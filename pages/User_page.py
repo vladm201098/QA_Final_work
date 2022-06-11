@@ -53,15 +53,6 @@ class AddUserPage(BasePage):
         field.send_keys(password_user)
         return field
 
-    def find_save_field(self):
-        field = self.find_element(UserPageLocators.SAVE_USER)
-        return field
-
-    def click_save_field(self):
-        field = self.find_save_field()
-        field.click()
-        return field
-
     def find_staff_field(self):
         field = self.find_element(UserPageLocators.GIVE_STAFF_STATUS)
         return field
@@ -77,6 +68,15 @@ class AddUserPage(BasePage):
 
     def click_add_to_group_field(self):
         field = self.add_to_group_field()
+        field.click()
+        return field
+
+    def find_save_field(self):
+        field = self.find_element(UserPageLocators.SAVE_USER)
+        return field
+
+    def click_save_field(self):
+        field = self.find_save_field()
         field.click()
         return field
 
