@@ -33,5 +33,5 @@ class Test1:
         group_page = GroupsPage(browser)
         group_page.open_group_page()
         group_page.check_status_new_group()
-        element = group_page.check_fill_field_page
+        element = group_page.check_fill_field_page()
         assert name_group == element

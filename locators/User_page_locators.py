@@ -20,6 +20,7 @@ class UserPageLocators:
     SAVE_USER = (By.XPATH, '//*[@id="user_form"]/div/div/input[1]')
     # ВОЗМОЖНО НУЖНО ПОМЕНЯТЬ - УКАЗАН КОНКРЕТНЫЙ ПОЛЬЗОВАТЕЛЬ
     CHECK_NEW_USER = (By.XPATH, '//*[@id="result_list"]/tbody/tr[2]/th/a')
+    CHECK_NEW_USER_FIELD = (By.NAME, 'username')
 
     # Common
 

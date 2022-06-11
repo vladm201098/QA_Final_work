@@ -8,10 +8,11 @@ TC_2:
 '''
 
 
-from configs.config_parser import username_adm, password_adm, name_group
+from configs.config_parser import username_adm, password_adm, password_user, username_user
 from pages.Login_page import LoginPage
 from pages.Main_page import MainPage
-from pages.Groups_page import GroupsPage
+from pages.User_page import AddUserPage
+from pages.User_page import UserPage
 
 
 class Test2:
@@ -29,4 +30,12 @@ class Test2:
         # assert на то что мы на админ странице
 
     def test_create_user(self, browser):
+        create_user = AddUserPage(browser)
+        create_user.open_add_user_page()
+        create_user.user_creation(username_user, password_user)
+        test_created_user = UserPage(browser)
+        test_created_user.open_user_page()
+        test_created_user.find_and_click_new_user()
+        element = test_created_user.check_username_info_field()
+        assert element == username_user
 

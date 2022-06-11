@@ -18,6 +18,15 @@ class UserPage(BasePage):
         field.click()
         return field
 
+    def find_and_click_new_user(self):
+        field = self.find_element(UserPageLocators.CHECK_NEW_USER)
+        field.click()
+        return field
+
+    def check_username_info_field(self):
+        field = self.find_element(UserPageLocators.CHECK_NEW_USER_FIELD)
+        return field
+
 
 class AddUserPage(BasePage):
 
@@ -26,12 +35,12 @@ class AddUserPage(BasePage):
     def open_add_user_page(self):
         self.open(self.add_user_page)
 
-    def find_username_fild(self):
+    def find_username_field(self):
         field = self.find_element(UserPageLocators.USERNAME)
         return field
 
     def fill_username_field(self, username_user):
-        field = self.find_username_fild()
+        field = self.find_username_field()
         field.send_keys(username_user)
         return field
 
@@ -39,7 +48,7 @@ class AddUserPage(BasePage):
         field = self.find_element(UserPageLocators.PASSWORD)
         return field
 
-    def fill_password_field(self,password_user):
+    def fill_password_field(self, password_user):
         field = self.find_password_field()
         field.send_keys(password_user)
         return field
