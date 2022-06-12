@@ -11,7 +11,7 @@ from configs.config_parser import username_adm, password_adm, password_user, use
 from pages.Login_page import LoginPage
 from pages.Main_page import MainPage
 from pages.Admin_page import AdminPage
-from pages.User_page import UserPage
+from pages.Posts_page import PostsPage
 
 
 class Test3:
@@ -27,4 +27,8 @@ class Test3:
         open_page.open_login_page()
         open_page.login(username_adm, password_adm)
         # assert на то что мы на админ странице
+
+    def delete_first_img(self,browser):
+        delete_img = PostsPage(browser)
+        delete_img.delete_first_pic()
 
