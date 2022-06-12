@@ -6,8 +6,7 @@ TC_4:
     4. Вернуться на главную страницу
     5. Убедиться, что первое изображение не отображается на странице
 '''
-
-from configs.config_parser import username_adm, password_adm, password_user, username_user, logout_text, welcome_user
+from configs.config_parser import username_adm, password_adm
 from pages.Login_page import LoginPage
 from pages.Main_page import MainPage
 from pages.Admin_page import AdminPage
@@ -28,7 +27,20 @@ class Test3:
         open_page.login(username_adm, password_adm)
         # assert на то что мы на админ странице
 
-    def delete_first_img(self,browser):
+    def delete_first_img(self, browser):
         delete_img = PostsPage(browser)
         delete_img.delete_first_pic()
+        assert delete_img.find_post_object_field is True
+
+    def test_open_django_project_2(self, browser):
+        # Login
+        open_page = MainPage(browser)
+        open_page.open_main_page()
+        # assert
+
+    def check_deleted_first_img(self,browser):
+        check_deleted = PostsPage(browser)
+        check = check_deleted.check_deleted_img()
+        assert check == 0
+
 

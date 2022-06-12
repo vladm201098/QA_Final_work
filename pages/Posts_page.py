@@ -11,7 +11,11 @@ class PostsPage(BasePage, PostsPageLocators):
 
     def find_post_object_field(self):
         field = self.find_element(PostsPageLocators.POSTS_OBJECT_1)
-        return field
+        result_search = self.find_element(PostsPageLocators.FIND_POSTS_1)
+        if field != result_search:
+            return field
+        else:
+            return 0
 
     def click_post_object_field(self):
         field = self.find_post_object_field()
@@ -40,3 +44,10 @@ class PostsPage(BasePage, PostsPageLocators):
         self.click_post_object_field()
         self.click_delete_field()
         self.click_sure_field()
+
+    def check_deleted_img(self):
+        img = self.find_element(PostsPageLocators.POST_1_ON_MAINPAGE)
+        if img is True:
+            return img
+        else:
+            return 0
