@@ -9,26 +9,27 @@ TC_3:
     7. Проверить, что приложение открылось
 '''
 
-from configs.config_parser import username_adm, password_adm, password_user, username_user, logout_text, welcome_user
+from configs.config_parser import username_adm, password_adm, password_user, username_user, logout_text, welcome_user, go_to_admin, welcome_admin
 from pages.Login_page import LoginPage
 from pages.Main_page import MainPage
-from pages.Admin_page import AdminPage
 from pages.User_page import UserPage
+from pages.Admin_page import AdminPage
 
 
 class Test2:
 
     def test_open_django_project(self, browser):
-        # Login
         open_page = MainPage(browser)
         open_page.open_main_page()
-        # assert
+        assert open_page.text_admin_button == go_to_admin
 
     def test_login_to_admin(self, browser):
         open_page = LoginPage(browser)
         open_page.open_login_page()
         open_page.login(username_adm, password_adm)
-        # assert на то что мы на админ странице
+        check_admin_pages = AdminPage(browser)
+        result_browser = check_admin_pages.check_admin_page()
+        assert result_browser == welcome_admin
 
     def test_logout_djando_project(self, browser):
         logout_user = UserPage(browser)
@@ -40,10 +41,7 @@ class Test2:
         open_page = LoginPage(browser)
         open_page.open_login_page()
         open_page.login(username_user, password_user)
-        # assert на то что мы на юзер странице
-
-    def check_admin_page(self, browser):
-        check_open = AdminPage(browser)
-        text_from_page = check_open.check_admin_page()
-        assert text_from_page == welcome_user
+        check_user_pages = AdminPage(browser)
+        result_browser = check_user_pages.check_admin_page()
+        assert result_browser == welcome_user
 

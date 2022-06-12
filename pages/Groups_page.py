@@ -51,7 +51,7 @@ class GroupsPage(BasePage):
         return field
 
     def check_fill_field_page(self):
-        field = self.find_element(GroupsPageLocators.FILED_NAME_GROUP)
+        field = self.find_element(GroupsPageLocators.FILLED_NAME_GROUP)
         return field
 
     def check_status_new_group(self):

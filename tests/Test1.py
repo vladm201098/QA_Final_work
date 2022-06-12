@@ -5,11 +5,12 @@ TC_1:
     3. Войти в админку
     4. Проверить, что группа отображается
 '''
-
-from configs.config_parser import username_adm, password_adm, name_group
+from selenium import webdriver
+from configs.config_parser import username_adm, password_adm, name_group, go_to_admin, welcome_admin
 from pages.Login_page import LoginPage
 from pages.Main_page import MainPage
 from pages.Groups_page import GroupsPage
+from pages.Admin_page import AdminPage
 
 import allure
 import pytest
@@ -18,16 +19,17 @@ import pytest
 class Test1:
 
     def test_open_django_project(self, browser):
-        # LOgin
         open_page = MainPage(browser)
         open_page.open_main_page()
-        # assert
+        assert open_page.text_admin_button == go_to_admin
 
     def test_login_to_admin(self, browser):
         open_page = LoginPage(browser)
         open_page.open_login_page()
         open_page.login(username_adm, password_adm)
-        # assert на то что мы на админ странице
+        check_admin_pages = AdminPage(browser)
+        result_browser = check_admin_pages.check_admin_page()
+        assert result_browser == welcome_admin
 
     def test_check_new_group(self, browser):
         group_page = GroupsPage(browser)
