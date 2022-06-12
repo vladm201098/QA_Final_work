@@ -4,7 +4,7 @@ from pages.Base_page import BasePage
 
 class LoginPage(BasePage):
 
-    login_url = BasePage.main_url + '/admin/login/?next=/admin/'
+    login_url = BasePage.main_url + 'admin/login/?next=/admin/'
 
     def open_login_page(self):
         self.open(self.login_url)
@@ -41,4 +41,3 @@ class LoginPage(BasePage):
         self.fill_username_field(username_adm)
         self.fill_password_field(password_adm)
         self.click_submit_field()
-        return

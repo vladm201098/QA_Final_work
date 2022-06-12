@@ -4,7 +4,7 @@ from locators.Posts_page_locators import PostsPageLocators
 
 class PostsPage(BasePage, PostsPageLocators):
 
-    posts_url = BasePage.main_url + '/admin/app/post/'
+    posts_url = BasePage.main_url + 'admin/app/post/'
 
     def open_posts_page(self):
         self.open(self.posts_url)

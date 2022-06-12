@@ -4,7 +4,7 @@ from pages.Base_page import BasePage
 
 class UserPage(BasePage):
 
-    user_page = BasePage.main_url + '/admin/auth/user/'
+    user_page = BasePage.main_url + 'admin/auth/user/'
 
     def open_user_page(self):
         self.open(self.user_page)
@@ -38,7 +38,7 @@ class UserPage(BasePage):
 
 class AddUserPage(BasePage):
 
-    add_user_page = BasePage.main_url + '/admin/auth/user/add'
+    add_user_page = BasePage.main_url + 'admin/auth/user/add'
 
     def open_add_user_page(self):
         self.open(self.add_user_page)

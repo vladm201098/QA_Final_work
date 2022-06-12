@@ -20,5 +20,8 @@ class BasePage:
     def open(self, url):
         return self.driver.get(url)
 
+    def current_url(self):
+        return self.driver.current_url
+
     def refresh(self):
         return self.driver.refresh()

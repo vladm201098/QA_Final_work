@@ -4,7 +4,7 @@ from pages.Base_page import BasePage
 
 class GroupsPage(BasePage):
 
-    group_url = BasePage.main_url + '/admin/auth/group/'
+    group_url = BasePage.main_url + 'admin/auth/group/'
 
     def open_group_page(self):
         self.open(self.group_url)
@@ -52,7 +52,7 @@ class GroupsPage(BasePage):
 
     def check_fill_field_page(self):
         field = self.find_element(GroupsPageLocators.FILLED_NAME_GROUP)
-        return field
+        return field.txt
 
     def check_status_new_group(self):
         self.find_new_group_page()

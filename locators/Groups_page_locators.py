@@ -11,4 +11,5 @@ class GroupsPageLocators:
     # ВОЗМОЖНО НУЖНО ПОМЕНЯТЬ - УКАЗАН КОНКРЕТНЫЙ ПОЛЬЗОВАТЕЛЬ
     CHECK_NEW_GROUP = (By.XPATH, '//*[@id="result_list"]/tbody/tr/th/a')
     FILLED_NAME_GROUP = (By.NAME, 'name')
+    RESULT_NAME_GROUP = (By.XPATH, '//*[@id="id_name"]')
 

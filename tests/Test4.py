@@ -18,15 +18,13 @@ class Test3:
     def test_open_django_project(self, browser):
         open_page = MainPage(browser)
         open_page.open_main_page()
-        assert open_page.text_admin_button == go_to_admin
+        assert open_page.current_url() == 'http://localhost:8000/'
 
     def test_login_to_admin(self, browser):
         open_page = LoginPage(browser)
         open_page.open_login_page()
         open_page.login(username_adm, password_adm)
-        check_admin_pages = AdminPage(browser)
-        result_browser = check_admin_pages.check_admin_page()
-        assert result_browser == welcome_admin
+        assert open_page.current_url() == 'http://localhost:8000/admin/'
 
     def delete_first_img(self, browser):
         delete_img = PostsPage(browser)
