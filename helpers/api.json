@@ -1,0 +1,48 @@
+[
+  {
+    "id": 1,
+    "username": "Vladislav98",
+    "firstName": "Vladislav",
+    "lastName": "Medvedev",
+    "email": "vladm201098@gmail.com",
+    "password": "12345678vm",
+    "phone": "48793069218",
+    "userStatus": 0
+  },
+  {
+    "id": 1,
+    "category": {
+      "id": 1,
+      "name": "Amira"
+    },
+    "name": "ferret",
+    "photoUrls": [
+      "mirysya"
+    ],
+    "tags": [
+      {
+        "id": 1,
+        "name": "harmful"
+      }
+    ],
+    "status": "available"
+  },
+  {
+    "id": 1,
+    "category": {
+      "id": 1,
+      "name": "Mirka"
+    },
+    "name": "ferret",
+    "photoUrls": [
+      "mirysya"
+    ],
+    "tags": [
+      {
+        "id": 1,
+        "name": "harmful"
+      }
+    ],
+    "status": "available"
+  }
+]

@@ -1,6 +1,6 @@
 '''
 TC_1:
-    1. Создать группу в bd
+    1. Создать группу
     2. Открыть приложение
     3. Войти в админку
     4. Проверить, что группа отображается
@@ -10,19 +10,22 @@ from pages.Login_page import LoginPage
 from pages.Main_page import MainPage
 from pages.Groups_page import GroupsPage
 from pages.Admin_page import AdminPage
-
-
 import allure
 import pytest
 
 
 class Test1:
 
+    @allure.feature('TC_!')
+    @allure.story('Открытие главной страницы')
+    @pytest.mark.positive
     def test_open_django_project(self, browser):
         open_page = MainPage(browser)
         open_page.open_main_page()
         assert open_page.current_url() == open_page.main_url
 
+    @allure.story('Логин в админку')
+    @pytest.mark.positive
     def test_login_to_admin(self, browser):
         open_page = LoginPage(browser)
         result = AdminPage(browser)
@@ -30,6 +33,8 @@ class Test1:
         open_page.login(username_adm, password_adm)
         assert open_page.current_url() == result.admin_url
 
+    @allure.story('Проверка на отображение группы')
+    @pytest.mark.positive
     def test_group_create(self, browser):
         group_page = GroupsPage(browser)
         group_page.open_group_page()
