@@ -7,8 +7,8 @@ class MainPage(BasePage):
     def main_page(self):
         self.open_main_page()
 
-    def find_all_pictures_data(self):
-        picture_data = self.find_element(MainPageLocators.SEARCH_IMAGE)
+    def find_all_pictures_data(self, browser):
+        picture_data = browser.find_element_by_css_selector('small.text-muted')
         data_text = [el.text for el in picture_data]
         return data_text
 

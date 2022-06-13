@@ -14,6 +14,7 @@ password_user = config.get("user_info", "password_user")
 name_group = config.get('group', "name_group")
 # logout
 logout_text = config.get('logout', 'logout_info')
+logout_page = config.get('logout', 'logout_page')
 # welcome
 welcome_admin = config.get('welcome', 'welcome_admin')
 welcome_user = config.get('welcome', 'welcome_user')

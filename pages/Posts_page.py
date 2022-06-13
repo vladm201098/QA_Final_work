@@ -4,23 +4,19 @@ from locators.Posts_page_locators import PostsPageLocators
 
 class PostsPage(BasePage, PostsPageLocators):
 
-    posts_url = BasePage.main_url + 'admin/app/post/'
+    posts_url = BasePage.main_url + 'admin/app/post/5/change/'                   # 'admin/app/post/'
 
     def open_posts_page(self):
         self.open(self.posts_url)
 
-    def find_post_object_field(self):
-        field = self.find_element(PostsPageLocators.POSTS_OBJECT_1)
-        result_search = self.find_element(PostsPageLocators.FIND_POSTS_1)
-        if field != result_search:
-            return field
-        else:
-            return 0
+    # def find_post_object_field(self):
+    #     field = self.find_element(PostsPageLocators.POSTS_OBJECT_1)
+    #     return field
 
-    def click_post_object_field(self):
-        field = self.find_post_object_field()
-        field.click()
-        return field
+    # def click_post_object_field(self):
+    #     field = self.find_post_object_field()
+    #     field.click()
+    #     return field
 
     def find_delete_field(self):
         field = self.find_element(PostsPageLocators.DELETE_OBJECT)
@@ -41,7 +37,7 @@ class PostsPage(BasePage, PostsPageLocators):
         return field
 
     def delete_first_pic(self):
-        self.click_post_object_field()
+        # self.click_post_object_field()
         self.click_delete_field()
         self.click_sure_field()
 

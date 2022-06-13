@@ -33,9 +33,5 @@ class Test2:
         create_user = AddUserPage(browser)
         create_user.open_add_user_page()
         create_user.user_creation(username_user, password_user)
-        test_created_user = UserPage(browser)
-        test_created_user.open_user_page()
-        test_created_user.find_and_click_new_user()
-        element = test_created_user.check_username_info_field()
-        assert element == username_user
+        assert create_user.current_url() == 'http://localhost:8000/admin/auth/user/'
 

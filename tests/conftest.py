@@ -23,3 +23,39 @@ def login_page(browser):
     login_page.open_login_page()
     yield login_page
     browser.quit()
+
+@pytest.fixture()
+def groups_page(browser):
+    login_page = LoginPage(browser)
+    login_page.login(username_adm, password)
+    groups_page = GroupsPage(browser)
+    groups_page.open_groups_page()
+    yield groups_page
+
+
+@pytest.fixture()
+def add_user_page(browser):
+    add_user_page = User_add_page(browser)
+    add_user_page.open_add_user_page()
+    yield add_user_page
+
+
+@pytest.fixture()
+def log_in_new_user(browser):
+    user_page = User_Page_Logout(browser)
+    user_page.click_logout_field()
+    login_page = LoginPage(browser)
+    login_page.open_login_page()
+    login_page.login(new_username, new_password)
+    admin_page = WelcomePage(browser)
+    admin_page.open_admin_page()
+    yield admin_page
+    browser.quit()
+
+
+@pytest.fixture(scope="class")
+def posts_page(browser):
+    posts_page = PostsPage(browser)
+    posts_page.open_posts_page()
+    yield posts_page
+    browser.quit()

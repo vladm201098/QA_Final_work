@@ -5,11 +5,11 @@ TC_1:
     3. Войти в админку
     4. Проверить, что группа отображается
 '''
-from configs.config_parser import username_adm, password_adm, name_group, go_to_admin, welcome_admin
+from configs.config_parser import username_adm, password_adm, name_group
 from pages.Login_page import LoginPage
 from pages.Main_page import MainPage
 from pages.Groups_page import GroupsPage
-from pages.Admin_page import AdminPage
+
 
 import allure
 import pytest
@@ -28,13 +28,11 @@ class Test1:
         open_page.login(username_adm, password_adm)
         assert open_page.current_url() == 'http://localhost:8000/admin/'
 
-    def group_create(self, browser, name_group):
+    def test_group_create(self, browser):
         group_page = GroupsPage(browser)
         group_page.open_group_page()
         group_page.group_creation(name_group)
-        name_group_page = group_page.find_name_field()
-        result_group_page = group_page.find_name_field()
-        assert name_group_page == result_group_page
+        assert group_page.current_url() == 'http://localhost:8000/admin/auth/group/'
 
 
 
