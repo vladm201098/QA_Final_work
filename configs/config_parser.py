@@ -22,3 +22,5 @@ welcome_user = config.get('welcome', 'welcome_user')
 datetime = config.get('date_and_time', 'datetime_first_post_img')
 # admin page
 go_to_admin = config.get('main_page', 'go_to_admin')
+# post
+default_post = config.get('post', 'default_post')

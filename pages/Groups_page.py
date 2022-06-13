@@ -41,20 +41,3 @@ class GroupsPage(BasePage):
         self.fill_name_field(name_group)
         self.click_save_field()
 
-    def find_new_group_page(self):
-        field = self.find_element(GroupsPageLocators.CHECK_NEW_GROUP)
-        return field
-
-    def click_new_group_page(self):
-        field = self.find_new_group_page()
-        field.click()
-        return field
-
-    def check_fill_field_page(self):
-        field = self.find_element(GroupsPageLocators.FILLED_NAME_GROUP)
-        return field.txt
-
-    def check_status_new_group(self):
-        self.find_new_group_page()
-        self.click_new_group_page()
-        self.check_fill_field_page()

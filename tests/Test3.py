@@ -21,13 +21,14 @@ class Test2:
     def test_open_django_project(self, browser):
         open_page = MainPage(browser)
         open_page.open_main_page()
-        assert open_page.current_url() == 'http://localhost:8000/'
+        assert open_page.current_url() == open_page.main_url
 
     def test_login_to_admin(self, browser):
         open_page = LoginPage(browser)
         open_page.open_login_page()
+        result = AdminPage(browser)
         open_page.login(username_adm, password_adm)
-        assert open_page.current_url() == 'http://localhost:8000/admin/'
+        assert open_page.current_url() == result.admin_url
 
     def test_logout_djando_project(self, browser):
         logout_user = UserPage(browser)
